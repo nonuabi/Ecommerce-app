@@ -30,6 +30,7 @@ const Products = () => {
                 <i className="fas fa-rupee-sign"></i>
                 {item.price}
               </p>
+              <button>Add To Cart</button>
               <button>
                 <i className="fas fa-trash"></i>
               </button>

@@ -1,11 +1,6 @@
-import { Navbar, NewProduct, Products } from "./components/index";
 function App() {
-  return (
-    <div className="App">
-      <Navbar />
-      <Products />
-    </div>
-  );
+  
+  return <div className="App"></div>;
 }
 
 export default App;
