@@ -1,9 +1,9 @@
-import { Navbar, NewProduct } from "./components/index";
+import { Navbar, NewProduct, Products } from "./components/index";
 function App() {
   return (
     <div className="App">
       <Navbar />
-      <NewProduct />
+      <Products />
     </div>
   );
 }

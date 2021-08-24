@@ -8,8 +8,8 @@ const Navbar = () => {
           <i className="fas fa-store-alt"></i>
           eCommerce
         </a>
-        <div class="collapse navbar-collapse" id="navbarText">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <div className="collapse navbar-collapse" id="navbarText">
+          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item nav-link active">Products</li>
             <li className="nav-item nav-link active">
               {" "}
@@ -19,7 +19,7 @@ const Navbar = () => {
         </div>
       </div>
       <a className="navbar-brand">
-        <i class="fas fa-cart-plus"></i>
+        <i className="fas fa-cart-plus"></i>
         <span>0</span>
       </a>
     </div>

@@ -1,0 +1,166 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "Keyboards",
+      "description": "Veniam et eiusmod aliquip aliquip laboris aute nostrud.",
+      "price": "2000",
+      "rating": "3.4"
+    },
+    {
+      "id": 2,
+      "title": "Headphone",
+      "description": "Occaecat veniam irure est do labore exercitation nisi.",
+      "price": "1000",
+      "rating": "4.0"
+    },
+    {
+      "id": 3,
+      "title": "Pants",
+      "description": "Occaecat veniam irure est do labore exercitation nisi.",
+      "price": "100",
+      "rating": "3.0"
+    },
+    {
+      "id": 4,
+      "title": "Coasters",
+      "description": "Occaecat veniam irure est do labore exercitation nisi.",
+      "price": "524",
+      "rating": "3.9"
+    },
+    {
+      "id": 5,
+      "title": "Hanger",
+      "description": "Occaecat veniam irure est do labore exercitation nisi.",
+      "price": "5465",
+      "rating": "4.2"
+    },
+    {
+      "id": 6,
+      "title": "Greeting Card",
+      "description": "Occaecat veniam irure est do labore exercitation nisi.",
+      "price": "234",
+      "rating": "3.5"
+    },
+    {
+      "id": 7,
+      "title": "Candle",
+      "description": "Occaecat veniam irure est do labore exercitation nisi.",
+      "price": "20",
+      "rating": "4.4"
+    },
+    {
+      "id": 8,
+      "title": "Flag",
+      "description": "Occaecat veniam irure est do labore exercitation nisi.",
+      "price": "300",
+      "rating": "4.9"
+    },
+    {
+      "id": 10,
+      "title": "Bag",
+      "description": "Occaecat veniam irure est do labore exercitation nisi.",
+      "price": "9000",
+      "rating": "4.5"
+    },
+    {
+      "id": 11,
+      "title": "Outlet",
+      "description": "Occaecat veniam irure est do labore exercitation nisi.",
+      "price": "500",
+      "rating": "4.1"
+    },
+    {
+      "id": 12,
+      "title": "Nail File",
+      "description": "Occaecat veniam irure est do labore exercitation nisi.",
+      "price": "10",
+      "rating": "3.4"
+    },
+    {
+      "id": 13,
+      "title": "Toothpaste",
+      "description": "Occaecat veniam irure est do labore exercitation nisi.",
+      "price": "45",
+      "rating": "4.5"
+    },
+    {
+      "id": 14,
+      "title": "Shampoo",
+      "description": "Occaecat veniam irure est do labore exercitation nisi.",
+      "price": "800",
+      "rating": "3.9"
+    },
+    {
+      "id": 15,
+      "title": "Perfume",
+      "description": "Occaecat veniam irure est do labore exercitation nisi.",
+      "price": "7000",
+      "rating": "4.6"
+    },
+    {
+      "id": 15,
+      "title": "Screw",
+      "description": "Occaecat veniam irure est do labore exercitation nisi.",
+      "price": "20",
+      "rating": "4.1"
+    },
+    {
+      "id": 16,
+      "title": "Eraser",
+      "description": "Occaecat veniam irure est do labore exercitation nisi.",
+      "price": "30",
+      "rating": "3.9"
+    },
+    {
+      "id": 17,
+      "title": "Ring",
+      "description": "Occaecat veniam irure est do labore exercitation nisi.",
+      "price": "40",
+      "rating": "3.8"
+    },
+    {
+      "id": 19,
+      "title": "Thermostat",
+      "description": "Occaecat veniam irure est do labore exercitation nisi.",
+      "price": "456",
+      "rating": "3.8"
+    },
+    {
+      "id": 20,
+      "title": "Air Freshener",
+      "description": "Occaecat veniam irure est do labore exercitation nisi.",
+      "price": "278",
+      "rating": "1.1"
+    },
+    {
+      "id": 21,
+      "title": "MP3 Player",
+      "description": "Occaecat veniam irure est do labore exercitation nisi.",
+      "price": "500",
+      "rating": "2.5"
+    },
+    {
+      "id": 22,
+      "title": "Paint Brush",
+      "description": "Occaecat veniam irure est do labore exercitation nisi.",
+      "price": "8541",
+      "rating": "5.0"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    },
+    {
+      "id": 2,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
