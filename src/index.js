@@ -1,5 +1,10 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { Products, NewProduct, Navbar } from "./components/index";
+import {
+  Products,
+  NewProduct,
+  Navbar,
+  InformationContainer,
+} from "./components/index";
 import { Provider } from "react-redux";
 import store from "./redux/store";
 import React from "react";
@@ -18,6 +23,9 @@ ReactDOM.render(
         </Route>
         <Route path="/new">
           <NewProduct />
+        </Route>
+        <Route path="/productInformation">
+          <InformationContainer />
         </Route>
       </Switch>
     </Router>

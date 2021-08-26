@@ -1,7 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
-import { deleteProduct, fetchPosts } from "../redux/posts/postAction";
-const Products = ({ fetchPost, postData, deleteProduct }) => {
+import {
+  deleteProduct,
+  fetchPosts,
+  productInformation,
+} from "../redux/posts/postAction";
+import { Link } from "react-router-dom";
+const Products = ({
+  fetchPost,
+  postData,
+  deleteProduct,
+  product_Information,
+}) => {
   useEffect(() => {
     fetchPost();
   }, []);
@@ -34,9 +44,13 @@ const Products = ({ fetchPost, postData, deleteProduct }) => {
                   <button onClick={() => deleteProduct(post.id)}>
                     <i className="fas fa-trash"></i>
                   </button>
-                  <button>
-                    <i className="fas fa-info "></i>
-                  </button>
+
+                  <Link
+                    to="productInformation"
+                    onClick={() => product_Information(post.id)}
+                  >
+                    Info
+                  </Link>
                 </div>
               </div>
             );
@@ -57,6 +71,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     fetchPost: () => dispatch(fetchPosts()),
     deleteProduct: (id) => dispatch(deleteProduct(id)),
+    product_Information: (id) => dispatch(productInformation(id)),
   };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(Products);
