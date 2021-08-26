@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
-const InformationContainer = ({ product_info }) => {
+import { addToCart } from "../redux/posts/postAction";
+const InformationContainer = ({ product_info, addToCart }) => {
   const [item, setItem] = useState([]);
 
   useEffect(() => {
@@ -21,10 +22,12 @@ const InformationContainer = ({ product_info }) => {
               <h5 className="card-title">{info.title}</h5>
               <h6 className="card-subtitle mb-2 text-muted">{info.rating}</h6>
               <p className="card-text">{info.description}</p>
+              <p className="card-text">{info.about}</p>
               <p className="card-text">
                 <i className="fas fa-rupee-sign"></i>
                 {info.price}
               </p>
+              <button onClick={() => addToCart(info.id)}>Add To Cart</button>
             </div>
           </div>
         );
@@ -38,10 +41,12 @@ const mapStateToProps = (state) => {
     product_info: state,
   };
 };
-// const mapDispatchToProps = (dispatch) => {
-//   return {};
-// };
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addToCart: (id) => dispatch(addToCart(id)),
+  };
+};
 export default connect(
-  mapStateToProps
-  //   mapDispatchToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(InformationContainer);
