@@ -1,4 +1,5 @@
 import {
+  DELETE_PRODUCT,
   FETCH_POSTS_FAILURE,
   FETCH_POSTS_REQUEST,
   FETCH_POSTS_SUCCESS,
@@ -33,6 +34,16 @@ const reducer = (state = initialState, action) => {
         posts: [],
         error: action.payload,
       };
+    case DELETE_PRODUCT:
+      alert("want to delete product");
+      return {
+        ...state,
+        loading: false,
+        error: "",
+        posts: state.posts.filter((post) => post.id !== action.payload),
+      };
+    default:
+      return state;
   }
 };
 

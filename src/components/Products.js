@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
-import { fetchPosts } from "../redux/posts/postAction";
-const Products = ({ fetchPost, postData }) => {
+import { deleteProduct, fetchPosts } from "../redux/posts/postAction";
+const Products = ({ fetchPost, postData, deleteProduct }) => {
   useEffect(() => {
     fetchPost();
   }, []);
   console.log("PRODUCDS STATE ", postData);
 
   return postData && postData.loading ? (
-    <h2>Loading...</h2>
+    <h2 class="display-1">Loading...</h2>
   ) : postData && postData.error ? (
     <h2>{postData.error}</h2>
   ) : (
@@ -17,7 +17,7 @@ const Products = ({ fetchPost, postData }) => {
       <div>
         {postData &&
           postData.posts &&
-          postData.posts.map((post) => {
+          postData.posts.map((post, index) => {
             return (
               <div className="card" key={post.id}>
                 <div className="card-body">
@@ -31,7 +31,7 @@ const Products = ({ fetchPost, postData }) => {
                     {post.price}
                   </p>
                   <button>Add To Cart</button>
-                  <button>
+                  <button onClick={() => deleteProduct(post.id)}>
                     <i className="fas fa-trash"></i>
                   </button>
                   <button>
@@ -44,13 +44,6 @@ const Products = ({ fetchPost, postData }) => {
       </div>
     </div>
   );
-  // return (
-  //   <div className="products">
-  //     {/* {products.map((item, index) => {
-  //
-  //     })} */}
-  //   </div>
-  // );
 };
 
 const mapStateToProps = (state) => {
@@ -63,6 +56,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     fetchPost: () => dispatch(fetchPosts()),
+    deleteProduct: (id) => dispatch(deleteProduct(id)),
   };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(Products);

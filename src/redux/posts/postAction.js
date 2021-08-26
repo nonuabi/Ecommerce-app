@@ -4,6 +4,7 @@ import {
   FETCH_POSTS_FAILURE,
   FETCH_POSTS_REQUEST,
   FETCH_POSTS_SUCCESS,
+  DELETE_PRODUCT,
 } from "./postType";
 
 // ACTION CREATER
@@ -38,5 +39,12 @@ export const fetchPosts = () => {
       .catch((err) => {
         dispatch(fetchPostsFailure(err.message));
       });
+  };
+};
+
+export const deleteProduct = (id) => {
+  return {
+    type: DELETE_PRODUCT,
+    payload: id,
   };
 };
