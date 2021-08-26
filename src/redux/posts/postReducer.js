@@ -1,4 +1,5 @@
 import {
+  ADD_NEW_PRODUCT,
   ADD_TO_CART,
   DELETE_PRODUCT,
   DELETE_PROUDUCT_FROM_CART,
@@ -68,6 +69,17 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         cart: state.cart.filter((item) => item.id !== action.payload),
+      };
+    case ADD_NEW_PRODUCT:
+      let product = {
+        title: action.payload.title,
+        description: action.payload.description,
+        price: action.payload.price,
+        rating: action.payload.rating,
+      };
+      return {
+        ...state,
+        posts: state.posts.unshift(product),
       };
     default:
       return state;

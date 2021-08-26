@@ -8,6 +8,7 @@ import {
   PRODUCT_INFORMATION,
   ADD_TO_CART,
   DELETE_PROUDUCT_FROM_CART,
+  ADD_NEW_PRODUCT,
 } from "./postType";
 
 // ACTION CREATER
@@ -71,5 +72,12 @@ export const deleteProductFromCart = (product_id) => {
   return {
     type: DELETE_PROUDUCT_FROM_CART,
     payload: product_id,
+  };
+};
+
+export const addNewProduct = (product) => {
+  return {
+    type: ADD_NEW_PRODUCT,
+    payload: product,
   };
 };

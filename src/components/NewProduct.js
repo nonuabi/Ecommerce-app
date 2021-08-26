@@ -1,29 +1,30 @@
 import React, { useState } from "react";
+import { addNewProduct } from "../redux/posts/postAction";
 import "../css/NewProduct.css";
-const NewProduct = () => {
-  const api_url =
-    "https://my-json-server.typicode.com/nonuabi/Ecommerce-App-DB/posts";
+const NewProduct = ({ addProduct }) => {
+  // const api_url =
+  //   "https://my-json-server.typicode.com/nonuabi/Ecommerce-App-DB/posts";
   const [details, setDetails] = useState({
     title: "",
     description: "",
     price: 0,
     rating: 0.0,
   });
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    console.log("click ", details);
-    const response = await fetch(api_url, {
-      method: "POST",
-      body: JSON.stringify({
-        ...details,
-      }),
-      headers: {
-        "Content-type": "application/json; charset=UTF-8",
-      },
-    });
-    let data = await response.json();
-    console.log("submit response ", data);
-  };
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   console.log("click ", details);
+  //   const response = await fetch(api_url, {
+  //     method: "POST",
+  //     body: JSON.stringify({
+  //       ...details,
+  //     }),
+  //     headers: {
+  //       "Content-type": "application/json; charset=UTF-8",
+  //     },
+  //   });
+  //   let data = await response.json();
+  //   console.log("submit response ", data);
+  // };
 
   return (
     <div className="new_product">
@@ -82,13 +83,23 @@ const NewProduct = () => {
           <label v-for="floatingPassword">Rating</label>
         </div>
         <div className="d-grid gap-2 col-6 mx-auto">
-          <button className="btn btn-dark" type="submit" onClick={handleSubmit}>
+          <button
+            className="btn btn-dark"
+            type="submit"
+            onClick={() => addProduct(details)}
+          >
             Button
           </button>
         </div>
       </form>
     </div>
   );
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addProduct: (product) => dispatch(addNewProduct(product)),
+  };
 };
 
 export default NewProduct;
