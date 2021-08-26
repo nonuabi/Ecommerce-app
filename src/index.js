@@ -1,10 +1,10 @@
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { Products, NewProduct, Navbar } from "./components/index";
+import { Provider } from "react-redux";
+import store from "./redux/store";
 import React from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { App, Products, NewProduct, Navbar } from "./components/index";
-import store from "./store";
-import { Provider } from "react-redux";
-
+import App from "./App";
 ReactDOM.render(
   <Provider store={store}>
     <Router>
@@ -22,5 +22,6 @@ ReactDOM.render(
       </Switch>
     </Router>
   </Provider>,
+
   document.getElementById("root")
 );
