@@ -6,6 +6,7 @@ import {
   FETCH_POSTS_SUCCESS,
   DELETE_PRODUCT,
   PRODUCT_INFORMATION,
+  ADD_TO_CART,
 } from "./postType";
 
 // ACTION CREATER
@@ -54,6 +55,13 @@ export const productInformation = (product_id) => {
   console.log("INFO ID ", product_id);
   return {
     type: PRODUCT_INFORMATION,
+    payload: product_id,
+  };
+};
+
+export const addToCart = (product_id) => {
+  return {
+    type: ADD_TO_CART,
     payload: product_id,
   };
 };

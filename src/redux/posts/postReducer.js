@@ -1,4 +1,5 @@
 import {
+  ADD_TO_CART,
   DELETE_PRODUCT,
   FETCH_POSTS_FAILURE,
   FETCH_POSTS_REQUEST,
@@ -12,6 +13,7 @@ const initialState = {
   posts: [],
   error: "",
   product_info_id: 0,
+  cart: [],
 };
 
 // REDUCER
@@ -26,17 +28,16 @@ const reducer = (state = initialState, action) => {
     case FETCH_POSTS_SUCCESS:
       return {
         ...state,
-        loading: false,
         error: "",
+        loading: false,
         product_info_id: 0,
-
         posts: action.payload,
       };
     case FETCH_POSTS_FAILURE:
       return {
         ...state,
-        loading: false,
         posts: [],
+        loading: false,
         product_info_id: 0,
         error: action.payload,
       };
@@ -44,16 +45,23 @@ const reducer = (state = initialState, action) => {
       alert("want to delete product");
       return {
         ...state,
-        loading: false,
         error: "",
+        loading: false,
         product_info_id: 0,
         posts: state.posts.filter((post) => post.id !== action.payload),
       };
     case PRODUCT_INFORMATION:
-      console.log("INFO payload ", action.payload);
       return {
         ...state,
         product_info_id: action.payload,
+      };
+    case ADD_TO_CART:
+      return {
+        ...state,
+        posts: state.posts.filter((post) => post.id !== action.payload),
+        cart: state.cart.concat(
+          state.posts.filter((post) => post.id == action.payload)
+        ),
       };
     default:
       return state;

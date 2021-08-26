@@ -28,10 +28,15 @@ const Navbar = () => {
           </ul>
         </div>
       </div>
-      <a className="navbar-brand">
+      <div>
+        <Link className="navbar-brand" to="/cart">
+          <i className="fas fa-cart-plus"></i>
+        </Link>
+      </div>
+      {/* <a className="navbar-brand">
         <i className="fas fa-cart-plus"></i>
         <span>0</span>
-      </a>
+      </a> */}
     </div>
   );
 };

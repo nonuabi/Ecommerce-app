@@ -10,6 +10,7 @@ import store from "./redux/store";
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
+import CartContainer from "./components/CartContainer";
 ReactDOM.render(
   <Provider store={store}>
     <Router>
@@ -26,6 +27,9 @@ ReactDOM.render(
         </Route>
         <Route path="/productInformation">
           <InformationContainer />
+        </Route>
+        <Route path="/cart">
+          <CartContainer />
         </Route>
       </Switch>
     </Router>

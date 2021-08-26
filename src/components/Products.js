@@ -4,6 +4,7 @@ import {
   deleteProduct,
   fetchPosts,
   productInformation,
+  addToCart,
 } from "../redux/posts/postAction";
 import { Link } from "react-router-dom";
 const Products = ({
@@ -11,13 +12,14 @@ const Products = ({
   postData,
   deleteProduct,
   product_Information,
+  addToCart,
 }) => {
   useEffect(() => {
     fetchPost();
   }, []);
   console.log("PRODUCDS STATE ", postData);
 
-  return postData && postData.loading ? (
+  return postData.loading ? (
     <h2 class="display-1">Loading...</h2>
   ) : postData && postData.error ? (
     <h2>{postData.error}</h2>
@@ -40,7 +42,9 @@ const Products = ({
                     <i className="fas fa-rupee-sign"></i>
                     {post.price}
                   </p>
-                  <button>Add To Cart</button>
+                  <button onClick={() => addToCart(post.id)}>
+                    Add To Cart
+                  </button>
                   <button onClick={() => deleteProduct(post.id)}>
                     <i className="fas fa-trash"></i>
                   </button>
@@ -72,6 +76,7 @@ const mapDispatchToProps = (dispatch) => {
     fetchPost: () => dispatch(fetchPosts()),
     deleteProduct: (id) => dispatch(deleteProduct(id)),
     product_Information: (id) => dispatch(productInformation(id)),
+    addToCart: (id) => dispatch(addToCart(id)),
   };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(Products);
