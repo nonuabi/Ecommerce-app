@@ -1,6 +1,7 @@
 import {
   ADD_TO_CART,
   DELETE_PRODUCT,
+  DELETE_PROUDUCT_FROM_CART,
   FETCH_POSTS_FAILURE,
   FETCH_POSTS_REQUEST,
   FETCH_POSTS_SUCCESS,
@@ -60,8 +61,13 @@ const reducer = (state = initialState, action) => {
         ...state,
         posts: state.posts.filter((post) => post.id !== action.payload),
         cart: state.cart.concat(
-          state.posts.filter((post) => post.id == action.payload)
+          state.posts.filter((post) => post.id === action.payload)
         ),
+      };
+    case DELETE_PROUDUCT_FROM_CART:
+      return {
+        ...state,
+        cart: state.cart.filter((item) => item.id !== action.payload),
       };
     default:
       return state;

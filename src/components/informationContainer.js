@@ -5,7 +5,7 @@ const InformationContainer = ({ product_info }) => {
 
   useEffect(() => {
     let temp = product_info.posts.filter(
-      (post) => post.id == product_info.product_info_id
+      (post) => post.id === product_info.product_info_id
     );
     setItem(temp);
   }, []);

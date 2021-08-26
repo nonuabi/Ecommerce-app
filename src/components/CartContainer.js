@@ -1,9 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
-import { deleteProduct, productInformation } from "../redux/posts/postAction";
-import { Link } from "react-router-dom";
+import { deleteProductFromCart } from "../redux/posts/postAction";
 
-const CartContainer = ({ cart, deleteProduct, product_Information }) => {
+const CartContainer = ({ cart, deleteProductFromCart }) => {
   return (
     <div>
       <h2>Cart Items</h2>
@@ -18,16 +17,9 @@ const CartContainer = ({ cart, deleteProduct, product_Information }) => {
                 <i className="fas fa-rupee-sign"></i>
                 {item.price}
               </p>
-              <button onClick={() => deleteProduct(item.id)}>
+              <button onClick={() => deleteProductFromCart(item.id)}>
                 <i className="fas fa-trash"></i>
               </button>
-
-              <Link
-                to="productInformation"
-                onClick={() => product_Information(item.id)}
-              >
-                Info
-              </Link>
             </div>
           </div>
         );
@@ -44,8 +36,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    deleteProduct: (id) => dispatch(deleteProduct(id)),
-    product_Information: (id) => dispatch(productInformation(id)),
+    deleteProductFromCart: (id) => dispatch(deleteProductFromCart(id)),
   };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(CartContainer);

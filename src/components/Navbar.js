@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 import "../css/Navbar.css";
-const Navbar = () => {
+const Navbar = ({ numOfCartItems }) => {
   return (
     <div className="navbar navbar-expand-lg  navbar-dark bg-dark">
       <div className="container-fluid">
@@ -31,6 +32,7 @@ const Navbar = () => {
       <div>
         <Link className="navbar-brand" to="/cart">
           <i className="fas fa-cart-plus"></i>
+          <span>{numOfCartItems}</span>
         </Link>
       </div>
       {/* <a className="navbar-brand">
@@ -41,4 +43,10 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+const mapStateToProps = (state) => {
+  return {
+    numOfCartItems: state.cart.length,
+  };
+};
+
+export default connect(mapStateToProps)(Navbar);
