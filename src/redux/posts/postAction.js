@@ -9,6 +9,7 @@ import {
   ADD_TO_CART,
   DELETE_PROUDUCT_FROM_CART,
   POST_PRODUCT_SUCCESS,
+  HANDLE_SORT_BUTTON,
 } from "./postType";
 
 const api_url =
@@ -102,5 +103,11 @@ export const addProduct = (product) => {
       dispatch(postProductSuccess(data));
     }
     console.log(data);
+  };
+};
+
+export const handleSortButton = () => {
+  return {
+    type: HANDLE_SORT_BUTTON,
   };
 };

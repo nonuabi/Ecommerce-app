@@ -7,16 +7,18 @@ import {
   FETCH_POSTS_SUCCESS,
   PRODUCT_INFORMATION,
   POST_PRODUCT_SUCCESS,
+  HANDLE_SORT_BUTTON,
 } from "./postType";
 
 // INITIAL STATE
 const initialState = {
-  loading: false,
-  posts: [],
-  error: "",
   product_info_id: 0,
-  cart: [],
   new_products: [],
+  loading: false,
+  sort: true,
+  posts: [],
+  cart: [],
+  error: "",
 };
 
 // REDUCER
@@ -87,6 +89,13 @@ const reducer = (state = initialState, action) => {
         ...state,
         new_products: product,
       };
+    case HANDLE_SORT_BUTTON: {
+      console.log(!state.sort);
+      return {
+        ...state,
+        sort: !state.sort,
+      };
+    }
 
     default:
       return state;
