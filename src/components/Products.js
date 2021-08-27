@@ -29,7 +29,7 @@ const Products = ({
       <div>
         {postData &&
           postData.posts &&
-          postData.posts.map((post, index) => {
+          postData.posts.map((post) => {
             return (
               <div className="card" key={post.id}>
                 <div className="card-body">
@@ -59,6 +59,39 @@ const Products = ({
               </div>
             );
           })}
+
+        {postData.new_products.length > 0
+          ? postData.new_products.map((post) => {
+              return (
+                <div className="card" key={post.id}>
+                  <div className="card-body">
+                    <h5 className="card-title">{post.title}</h5>
+                    <h6 className="card-subtitle mb-2 text-muted">
+                      {post.rating}
+                    </h6>
+                    <p className="card-text">{post.description}</p>
+                    <p className="card-text">
+                      <i className="fas fa-rupee-sign"></i>
+                      {post.price}
+                    </p>
+                    <button onClick={() => addToCart(post.id)}>
+                      Add To Cart
+                    </button>
+                    <button onClick={() => deleteProduct(post.id)}>
+                      <i className="fas fa-trash"></i>
+                    </button>
+
+                    <Link
+                      to="productInformation"
+                      onClick={() => product_Information(post.id)}
+                    >
+                      Info
+                    </Link>
+                  </div>
+                </div>
+              );
+            })
+          : null}
       </div>
     </div>
   );

@@ -1,5 +1,4 @@
 import {
-  ADD_NEW_PRODUCT,
   ADD_TO_CART,
   DELETE_PRODUCT,
   DELETE_PROUDUCT_FROM_CART,
@@ -7,6 +6,7 @@ import {
   FETCH_POSTS_REQUEST,
   FETCH_POSTS_SUCCESS,
   PRODUCT_INFORMATION,
+  POST_PRODUCT_SUCCESS,
 } from "./postType";
 
 // INITIAL STATE
@@ -16,6 +16,7 @@ const initialState = {
   error: "",
   product_info_id: 0,
   cart: [],
+  new_products: [],
 };
 
 // REDUCER
@@ -70,17 +71,23 @@ const reducer = (state = initialState, action) => {
         ...state,
         cart: state.cart.filter((item) => item.id !== action.payload),
       };
-    case ADD_NEW_PRODUCT:
-      let product = {
-        title: action.payload.title,
-        description: action.payload.description,
-        price: action.payload.price,
-        rating: action.payload.rating,
-      };
+    case POST_PRODUCT_SUCCESS:
+      console.log("new product redcue ", action.payload);
+
+      let product = [
+        {
+          title: action.payload.title,
+          description: action.payload.description,
+          price: action.payload.price,
+          rating: action.payload.rating,
+        },
+      ];
+      console.log("new product product ", product);
       return {
         ...state,
-        posts: state.posts.unshift(product),
+        new_products: product,
       };
+
     default:
       return state;
   }

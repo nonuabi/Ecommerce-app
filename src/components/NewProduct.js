@@ -1,35 +1,21 @@
 import React, { useState } from "react";
-import { addNewProduct } from "../redux/posts/postAction";
+import { addProduct } from "../redux/posts/postAction";
+import { useDispatch } from "react-redux";
+
 import "../css/NewProduct.css";
-const NewProduct = ({ addProduct }) => {
-  // const api_url =
-  //   "https://my-json-server.typicode.com/nonuabi/Ecommerce-App-DB/posts";
+const NewProduct = () => {
+  const dispatch = useDispatch();
   const [details, setDetails] = useState({
     title: "",
     description: "",
     price: 0,
     rating: 0.0,
   });
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   console.log("click ", details);
-  //   const response = await fetch(api_url, {
-  //     method: "POST",
-  //     body: JSON.stringify({
-  //       ...details,
-  //     }),
-  //     headers: {
-  //       "Content-type": "application/json; charset=UTF-8",
-  //     },
-  //   });
-  //   let data = await response.json();
-  //   console.log("submit response ", data);
-  // };
 
   return (
     <div className="new_product">
       <h1 className="display-4">Add a Product</h1>
-      <form className="form_item">
+      <div className="form_item">
         <div className="form-floating mb-3">
           <input
             name="title"
@@ -84,22 +70,16 @@ const NewProduct = ({ addProduct }) => {
         </div>
         <div className="d-grid gap-2 col-6 mx-auto">
           <button
+            onClick={() => dispatch(addProduct(details))}
             className="btn btn-dark"
             type="submit"
-            onClick={() => addProduct(details)}
           >
             Button
           </button>
         </div>
-      </form>
+      </div>
     </div>
   );
-};
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    addProduct: (product) => dispatch(addNewProduct(product)),
-  };
 };
 
 export default NewProduct;
