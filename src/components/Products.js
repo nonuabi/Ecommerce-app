@@ -23,26 +23,12 @@ const Products = ({
     isInEditMode: false,
     id: -1,
   });
-  const inputText = useRef("");
+  const inputRef = useRef(null);
   useEffect(() => {
     fetchPost();
   }, [postData.sort]);
-  // useEffect(() => {
-  //   inputText.current = inEdit.value;
-  // }, [inEdit]);
   console.log("PRODUCDS STATE ", postData);
-
-  // const [tempPosts, setTempPosts] = useState([...postData.posts]);
-
   const changeEditMode = (product_id) => {
-    // console.log("temp posts ", tempPosts);
-    // console.log("edit product id ", product_id);
-    // let currentPost = tempPosts.filter((item) => item.id === product_id);
-    // currentPost.title = "helo";
-    // edit(product_id);
-
-    // setTempPosts([(tempPosts.filter((item) => item.id === product_id))]);
-
     setInEdit({
       ...inEdit,
       isInEditMode: !inEdit.isInEditMode,
@@ -51,13 +37,16 @@ const Products = ({
     console.log("Click");
   };
 
-  const updateComponentValue = () => {
-    console.log("INPUT VALUE: ", inputText);
-    setInEdit({
-      ...inEdit,
-      isInEditMode: !inEdit.isInEditMode,
-      // value: inputText.current.focus(),
-    });
+  const updateComponentValue = (product_id) => {
+    edit({ id: product_id, value: inputRef.current.value });
+    console.log("INPUT VALUE: ", inputRef.current.value);
+    if (inputRef.current) {
+      setInEdit({
+        ...inEdit,
+        isInEditMode: !inEdit.isInEditMode,
+        value: inputRef.current.value,
+      });
+    }
   };
   console.log("Edit mode : ", inEdit);
 
@@ -85,12 +74,12 @@ const Products = ({
                       <input
                         type="text"
                         defaultValue={post.title}
-                        ref={inputText}
-                        // value={inEdit.value}
-                        // onChange={(e) => setInEdit(e.target.value)}
+                        ref={inputRef}
                       />
                       <button onClick={changeEditMode}>X</button>
-                      <button onClick={updateComponentValue}>OK</button>
+                      <button onClick={() => updateComponentValue(post.id)}>
+                        OK
+                      </button>
                     </div>
                   ) : (
                     <h5 className="card-title">{post.title}</h5>
@@ -208,8 +197,7 @@ const mapDispatchToProps = (dispatch) => {
     product_Information: (id) => dispatch(productInformation(id)),
     addToCart: (id) => dispatch(addToCart(id)),
     sort: () => dispatch(handleSortButton()),
-    edit: (id) => dispatch(handleEditPost(id)),
+    edit: (data) => dispatch(handleEditPost(data)),
   };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(Products);
-// [].concat(postData.posts).sort((a, b) => (a.itemM > b.itemM ? 1 : -1));

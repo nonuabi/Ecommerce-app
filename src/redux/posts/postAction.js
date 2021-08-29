@@ -113,10 +113,10 @@ export const handleSortButton = () => {
   };
 };
 
-export const handleEditPost = (product_id) => {
-  console.log("handle Edit Post Product id  ", product_id);
+export const handleEditPost = (data) => {
+  console.log("handle Edit Post Product id  ", data);
   return {
     type: HANDLE_EDIT_POST,
-    payload: product_id,
+    payload: data,
   };
 };

@@ -97,14 +97,19 @@ const reducer = (state = initialState, action) => {
         sort: !state.sort,
       };
     case HANDLE_EDIT_POST:
-      let tempPosts = state.posts.filter((post) => post.id !== action.payload);
-      let currentPost = state.posts.filter(
-        (post) => post.id === action.payload
-      );
+      let tempPosts = state.posts.map((post) => {
+        if (post.id === action.payload.id) {
+          return { ...post, title: action.payload.value };
+        } else {
+          return post;
+        }
+      });
+
+      console.log("redux post ", tempPosts);
 
       return {
         ...state,
-        posts: tempPosts.concat(currentPost),
+        posts: tempPosts,
       };
 
     default:
