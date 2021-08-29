@@ -8,6 +8,7 @@ import {
   PRODUCT_INFORMATION,
   POST_PRODUCT_SUCCESS,
   HANDLE_SORT_BUTTON,
+  HANDLE_EDIT_POST,
 } from "./postType";
 
 // INITIAL STATE
@@ -89,13 +90,22 @@ const reducer = (state = initialState, action) => {
         ...state,
         new_products: product,
       };
-    case HANDLE_SORT_BUTTON: {
+    case HANDLE_SORT_BUTTON:
       console.log(!state.sort);
       return {
         ...state,
         sort: !state.sort,
       };
-    }
+    case HANDLE_EDIT_POST:
+      let tempPosts = state.posts.filter((post) => post.id !== action.payload);
+      let currentPost = state.posts.filter(
+        (post) => post.id === action.payload
+      );
+
+      return {
+        ...state,
+        posts: tempPosts.concat(currentPost),
+      };
 
     default:
       return state;

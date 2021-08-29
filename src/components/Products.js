@@ -1,13 +1,14 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import {
   deleteProduct,
   fetchPosts,
   productInformation,
   addToCart,
   handleSortButton,
+  handleEditPost,
 } from "../redux/posts/postAction";
-import { Link } from "react-router-dom";
 const Products = ({
   fetchPost,
   postData,
@@ -15,11 +16,50 @@ const Products = ({
   product_Information,
   addToCart,
   sort,
+  edit,
 }) => {
+  const [inEdit, setInEdit] = useState({
+    value: "Type Here..",
+    isInEditMode: false,
+    id: -1,
+  });
+  const inputText = useRef("");
   useEffect(() => {
     fetchPost();
   }, [postData.sort]);
+  // useEffect(() => {
+  //   inputText.current = inEdit.value;
+  // }, [inEdit]);
   console.log("PRODUCDS STATE ", postData);
+
+  // const [tempPosts, setTempPosts] = useState([...postData.posts]);
+
+  const changeEditMode = (product_id) => {
+    // console.log("temp posts ", tempPosts);
+    // console.log("edit product id ", product_id);
+    // let currentPost = tempPosts.filter((item) => item.id === product_id);
+    // currentPost.title = "helo";
+    // edit(product_id);
+
+    // setTempPosts([(tempPosts.filter((item) => item.id === product_id))]);
+
+    setInEdit({
+      ...inEdit,
+      isInEditMode: !inEdit.isInEditMode,
+      id: product_id,
+    });
+    console.log("Click");
+  };
+
+  const updateComponentValue = () => {
+    console.log("INPUT VALUE: ", inputText);
+    setInEdit({
+      ...inEdit,
+      isInEditMode: !inEdit.isInEditMode,
+      // value: inputText.current.focus(),
+    });
+  };
+  console.log("Edit mode : ", inEdit);
 
   return postData.loading ? (
     <h2 class="display-1">Loading...</h2>
@@ -37,7 +77,24 @@ const Products = ({
             return (
               <div className="card" key={post.id}>
                 <div className="card-body">
-                  <h5 className="card-title">{post.title}</h5>
+                  <button onClick={() => changeEditMode(post.id)}>
+                    <i class="fas fa-pencil-alt"></i>
+                  </button>
+                  {inEdit.isInEditMode && inEdit.id === post.id ? (
+                    <div>
+                      <input
+                        type="text"
+                        defaultValue={post.title}
+                        ref={inputText}
+                        // value={inEdit.value}
+                        // onChange={(e) => setInEdit(e.target.value)}
+                      />
+                      <button onClick={changeEditMode}>X</button>
+                      <button onClick={updateComponentValue}>OK</button>
+                    </div>
+                  ) : (
+                    <h5 className="card-title">{post.title}</h5>
+                  )}
                   <h6 className="card-subtitle mb-2 text-muted">
                     {post.rating}
                   </h6>
@@ -151,6 +208,7 @@ const mapDispatchToProps = (dispatch) => {
     product_Information: (id) => dispatch(productInformation(id)),
     addToCart: (id) => dispatch(addToCart(id)),
     sort: () => dispatch(handleSortButton()),
+    edit: (id) => dispatch(handleEditPost(id)),
   };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(Products);

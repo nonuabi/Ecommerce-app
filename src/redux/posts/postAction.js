@@ -10,6 +10,7 @@ import {
   DELETE_PROUDUCT_FROM_CART,
   POST_PRODUCT_SUCCESS,
   HANDLE_SORT_BUTTON,
+  HANDLE_EDIT_POST,
 } from "./postType";
 
 const api_url =
@@ -109,5 +110,13 @@ export const addProduct = (product) => {
 export const handleSortButton = () => {
   return {
     type: HANDLE_SORT_BUTTON,
+  };
+};
+
+export const handleEditPost = (product_id) => {
+  console.log("handle Edit Post Product id  ", product_id);
+  return {
+    type: HANDLE_EDIT_POST,
+    payload: product_id,
   };
 };
