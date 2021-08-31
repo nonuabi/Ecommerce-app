@@ -14,22 +14,24 @@ const InformationContainer = ({ product_info, addToCart }) => {
   console.log("info item ", item);
   return (
     <div>
-      <h2>{item.title} Information</h2>
       {item.map((info) => {
         return (
-          <div className="card" key={info.id}>
-            <div className="card-body">
-              <h5 className="card-title">{info.title}</h5>
-              <h6 className="card-subtitle mb-2 text-muted">{info.rating}</h6>
-              <p className="card-text">{info.description}</p>
-              <p className="card-text">{info.about}</p>
-              <p className="card-text">
-                <i className="fas fa-rupee-sign"></i>
-                {info.price}
-              </p>
-              <button onClick={() => addToCart(info.id)}>Add To Cart</button>
+          <>
+            <h2>Detailed Information</h2>
+            <div className="card" key={info.id}>
+              <div className="card-body">
+                <h5 className="card-title">{info.title}</h5>
+                <h6 className="card-subtitle mb-2 text-muted">Rating : {info.rating}</h6>
+                <p className="card-text">{info.description}</p>
+                <p className="card-text">{info.about}</p>
+                <p className="card-text">
+                  <i className="fas fa-rupee-sign"></i>
+                  {info.price}
+                </p>
+                <button onClick={() => addToCart(info.id)}>Add To Cart</button>
+              </div>
             </div>
-          </div>
+          </>
         );
       })}
     </div>
