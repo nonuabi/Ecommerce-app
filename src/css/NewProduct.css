@@ -2,6 +2,7 @@ body {
   margin: 0;
   box-sizing: border-box;
 }
+/* NEW PRODUCT FILE CSS */
 .new_product {
   display: flex;
   flex-direction: column;

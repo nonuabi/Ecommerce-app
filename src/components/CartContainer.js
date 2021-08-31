@@ -1,11 +1,14 @@
 import React from "react";
 import { connect } from "react-redux";
+//DELETE PRODUCT ACTION
 import { deleteProductFromCart } from "../redux/posts/postAction";
 
+// CART CONTAINER COMPONENT
 const CartContainer = ({ cart, deleteProductFromCart }) => {
   return (
     <div className="cart_container">
       <h2>Cart Items</h2>
+      {/* ITERATING OVER CART ARRAY  */}
       {cart.map((item) => {
         return (
           <div className="card" id="cart_id" key={item.id}>
@@ -33,15 +36,20 @@ const CartContainer = ({ cart, deleteProductFromCart }) => {
   );
 };
 
+// MAP STATE TO PROPS FUNCTION
 const mapStateToProps = (state) => {
   return {
     cart: state.cart,
   };
 };
 
+// MAP DISPATCH TO PROPS FUNCTION
+
 const mapDispatchToProps = (dispatch) => {
   return {
     deleteProductFromCart: (id) => dispatch(deleteProductFromCart(id)),
   };
 };
+
+// CONNECTING THE STATE AND DISPATCH TO THE COMPOENT
 export default connect(mapStateToProps, mapDispatchToProps)(CartContainer);

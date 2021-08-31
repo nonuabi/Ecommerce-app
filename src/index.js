@@ -4,17 +4,21 @@ import {
   NewProduct,
   Navbar,
   InformationContainer,
+  CartContainer,
 } from "./components/index";
+// GET PROVIDER FROM THE REACT REDUX
 import { Provider } from "react-redux";
+// IMPORT STORE
 import store from "./redux/store";
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
-import CartContainer from "./components/CartContainer";
 ReactDOM.render(
+  // SEDING STORE AS A PROPS
   <Provider store={store}>
     <Router>
       <Navbar />
+      {/* USED SWITCH  */}
       <Switch>
         <Route exact path="/">
           <App />

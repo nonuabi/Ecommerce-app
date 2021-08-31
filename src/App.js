@@ -1,5 +1,6 @@
 import React from "react";
 import "./App.css";
+// HOME PAGE
 const App = () => {
   return (
     <div className="App">

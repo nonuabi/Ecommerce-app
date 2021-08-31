@@ -1,9 +1,11 @@
+/* PRODUCT PAGE CSS */
+/* HEADER */
 .product_header {
   margin-top: 0.5rem;
-
   display: flex;
   justify-content: space-around;
 }
+/* PRODUCT ITEM CONTAINER */
 .cart_container {
   display: flex;
   flex-direction: column;
@@ -26,6 +28,7 @@
 #edit_input_container {
   margin-bottom: 0.5rem;
 }
+/* EDIT BUTTONS */
 #edit_btn {
   margin-left: 0.5rem;
 }

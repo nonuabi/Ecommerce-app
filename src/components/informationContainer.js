@@ -2,8 +2,10 @@ import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { addToCart } from "../redux/posts/postAction";
 const InformationContainer = ({ product_info, addToCart }) => {
+  // STATE TO STORE PRODUCT
   const [item, setItem] = useState([]);
 
+  // TO GET DATA WHEN EVER THE INFORMATION PAGE IS RENDER
   useEffect(() => {
     let temp = product_info.posts.filter(
       (post) => post.id === product_info.product_info_id
@@ -13,6 +15,7 @@ const InformationContainer = ({ product_info, addToCart }) => {
 
   return (
     <div>
+      {/* MAPPING OVER THE ITME STATE ARRAY  */}
       {item.map((info) => {
         return (
           <>
@@ -38,16 +41,21 @@ const InformationContainer = ({ product_info, addToCart }) => {
     </div>
   );
 };
+
+// MAP TO STATE FUNCTION
 const mapStateToProps = (state) => {
   return {
     product_info: state,
   };
 };
+// MAP TO DISPATCH FUNCTION
 const mapDispatchToProps = (dispatch) => {
   return {
     addToCart: (id) => dispatch(addToCart(id)),
   };
 };
+
+// EXORTING AND CONNECTING STATES AND PROPS TO THE COMPONENT
 export default connect(
   mapStateToProps,
   mapDispatchToProps

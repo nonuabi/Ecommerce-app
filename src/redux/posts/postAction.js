@@ -11,22 +11,23 @@ import {
   HANDLE_SORT_BUTTON,
   HANDLE_EDIT_POST,
 } from "./postType";
-
+// API URL
 const api_url =
   "https://my-json-server.typicode.com/nonuabi/Ecommerce-App-DB/posts";
-
-// ACTION CREATER
+// REQUEST FETCH ACTION
 export const fetchPostsRequest = () => {
   return {
     type: FETCH_POSTS_REQUEST,
   };
 };
+// SUCCESSFULL FETCH POST ACTION
 export const fetchPostsSuccess = (posts) => {
   return {
     type: FETCH_POSTS_SUCCESS,
     payload: posts,
   };
 };
+// FAILURE FETCH POST ACTION
 export const fetchPostsFailure = (error) => {
   return {
     type: FETCH_POSTS_FAILURE,
@@ -49,13 +50,14 @@ export const fetchPosts = () => {
   };
 };
 
+// DELTE PRODUCT ACTION CREADTER
 export const deleteProduct = (id) => {
   return {
     type: DELETE_PRODUCT,
     payload: id,
   };
 };
-
+// INFORMATION ABOUT PROUDCTION ACTION
 export const productInformation = (product_id) => {
   return {
     type: PRODUCT_INFORMATION,
@@ -63,6 +65,7 @@ export const productInformation = (product_id) => {
   };
 };
 
+// ADD PRODUCT TO THE CART LIST ACTION
 export const addToCart = (product_id) => {
   return {
     type: ADD_TO_CART,
@@ -70,13 +73,14 @@ export const addToCart = (product_id) => {
   };
 };
 
+// DELETE THE PRODUCT ACTIONS
 export const deleteProductFromCart = (product_id) => {
   return {
     type: DELETE_PROUDUCT_FROM_CART,
     payload: product_id,
   };
 };
-
+// ADD NEW PRODUCT SUCCESSFULL ACTION
 export const postProductSuccess = (product) => {
   return {
     type: POST_PRODUCT_SUCCESS,
@@ -84,6 +88,7 @@ export const postProductSuccess = (product) => {
   };
 };
 
+// ADD NEW DATA TO THE DB API CALL ACTION
 export const addProduct = (product) => {
   return async (dispatch) => {
     const res = await fetch(api_url, {
@@ -105,12 +110,14 @@ export const addProduct = (product) => {
   };
 };
 
+// TO SORT THE PRICE ACTION
 export const handleSortButton = () => {
   return {
     type: HANDLE_SORT_BUTTON,
   };
 };
 
+// EDIT POST ACTION
 export const handleEditPost = (data) => {
   return {
     type: HANDLE_EDIT_POST,
