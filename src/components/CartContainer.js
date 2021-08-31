@@ -17,9 +17,9 @@ const CartContainer = ({ cart, deleteProductFromCart }) => {
                 <i className="fas fa-rupee-sign"></i>
                 {item.price}
               </p>
-              <div class="d-grid gap-2 col-6 mx-auto">
+              <div className="d-grid gap-2 col-6 mx-auto">
                 <button
-                  class="btn btn-outline-danger"
+                  className="btn btn-outline-danger"
                   onClick={() => deleteProductFromCart(item.id)}
                 >
                   <i className="fas fa-trash"></i>

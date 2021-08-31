@@ -19,7 +19,7 @@ const Navbar = ({ numOfCartItems }) => {
             <li className="nav-item nav-link active">
               {" "}
               <Link className="navbar-brand" to="/new">
-                Add a Product <i class="fas fa-folder-plus"></i>
+                Add a Product <i className="fas fa-folder-plus"></i>
               </Link>
             </li>
           </ul>

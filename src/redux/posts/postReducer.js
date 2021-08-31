@@ -48,7 +48,7 @@ const reducer = (state = initialState, action) => {
         error: action.payload,
       };
     case DELETE_PRODUCT:
-      alert("want to delete product");
+      alert("Product Delete");
       return {
         ...state,
         error: "",
@@ -83,6 +83,7 @@ const reducer = (state = initialState, action) => {
           rating: action.payload.rating,
         },
       ];
+
       return {
         ...state,
         new_products: product,
@@ -100,6 +101,7 @@ const reducer = (state = initialState, action) => {
           return post;
         }
       });
+      alert(`Title changed to ${action.payload.value}`);
       return {
         ...state,
         posts: tempPosts,

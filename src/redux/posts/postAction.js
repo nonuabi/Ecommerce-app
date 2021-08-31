@@ -43,6 +43,7 @@ export const fetchPosts = () => {
     if (response) {
       dispatch(fetchPostsSuccess(response));
     } else {
+      alert("server error while fetching data");
       dispatch(fetchPostsFailure("server error"));
     }
   };
@@ -96,7 +97,10 @@ export const addProduct = (product) => {
     });
     const data = await res.json();
     if (data) {
+      alert("product is added");
       dispatch(postProductSuccess(data));
+    } else {
+      alert("server error while posting data to the db");
     }
   };
 };

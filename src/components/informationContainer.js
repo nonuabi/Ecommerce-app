@@ -39,7 +39,6 @@ const InformationContainer = ({ product_info, addToCart }) => {
   );
 };
 const mapStateToProps = (state) => {
-  console.log("info mapstate ", state);
   return {
     product_info: state,
   };
