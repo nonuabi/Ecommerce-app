@@ -6,7 +6,7 @@ const Navbar = ({ numOfCartItems }) => {
   return (
     <div className="navbar navbar-expand-lg  navbar-dark bg-dark">
       <div className="container-fluid">
-        <Link className="navbar-brand" to="/">
+        <Link id="home_link" className="navbar-brand" to="/">
           eCommerce
         </Link>
         <div className=" navbar-collapse" id="navbarText">
