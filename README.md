@@ -1,4 +1,4 @@
-# eCommerce React App
+# eCommerce React App Using Redux
 ## View this web page at : https://nonuabi.github.io/Ecommerce-app/
 
 ### Features
