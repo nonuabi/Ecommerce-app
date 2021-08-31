@@ -16,7 +16,7 @@ ReactDOM.render(
     <Router>
       <Navbar />
       <Switch>
-        <Route exact path="/">
+        <Route exact path="/Ecommerce-app">
           <App />
         </Route>
         <Route path="/products">
