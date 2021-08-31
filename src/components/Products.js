@@ -56,8 +56,6 @@ const Products = ({
       return sorted;
     }
   };
-  console.log("Edit mode : ", inEdit);
-  console.log("PRODUCDS STATE ", postData);
   return postData.loading ? (
     <h2 class="display-1">Loading...</h2>
   ) : postData && postData.error ? (

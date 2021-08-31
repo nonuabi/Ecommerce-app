@@ -41,7 +41,6 @@ export const fetchPosts = () => {
     const res = await fetch(api_url);
     const response = await res.json();
     if (response) {
-      console.log("api fetch posts response ", response);
       dispatch(fetchPostsSuccess(response));
     } else {
       dispatch(fetchPostsFailure("server error"));
@@ -57,7 +56,6 @@ export const deleteProduct = (id) => {
 };
 
 export const productInformation = (product_id) => {
-  console.log("INFO ID ", product_id);
   return {
     type: PRODUCT_INFORMATION,
     payload: product_id,
@@ -79,7 +77,6 @@ export const deleteProductFromCart = (product_id) => {
 };
 
 export const postProductSuccess = (product) => {
-  console.log("new product action ", product);
   return {
     type: POST_PRODUCT_SUCCESS,
     payload: product,
@@ -101,7 +98,6 @@ export const addProduct = (product) => {
     if (data) {
       dispatch(postProductSuccess(data));
     }
-    console.log(data);
   };
 };
 
@@ -112,7 +108,6 @@ export const handleSortButton = () => {
 };
 
 export const handleEditPost = (data) => {
-  console.log("handle Edit Post Product id  ", data);
   return {
     type: HANDLE_EDIT_POST,
     payload: data,

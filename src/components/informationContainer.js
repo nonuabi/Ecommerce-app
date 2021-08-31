@@ -11,7 +11,6 @@ const InformationContainer = ({ product_info, addToCart }) => {
     setItem(temp);
   }, []);
 
-  console.log("info item ", item);
   return (
     <div>
       {item.map((info) => {
@@ -21,7 +20,9 @@ const InformationContainer = ({ product_info, addToCart }) => {
             <div className="card" key={info.id}>
               <div className="card-body">
                 <h5 className="card-title">{info.title}</h5>
-                <h6 className="card-subtitle mb-2 text-muted">Rating : {info.rating}</h6>
+                <h6 className="card-subtitle mb-2 text-muted">
+                  Rating : {info.rating}
+                </h6>
                 <p className="card-text">{info.description}</p>
                 <p className="card-text">{info.about}</p>
                 <p className="card-text">
