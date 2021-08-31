@@ -4,11 +4,11 @@ import { deleteProductFromCart } from "../redux/posts/postAction";
 
 const CartContainer = ({ cart, deleteProductFromCart }) => {
   return (
-    <div>
+    <div className="cart_container">
       <h2>Cart Items</h2>
       {cart.map((item) => {
         return (
-          <div className="card" key={item.id}>
+          <div className="card" id="cart_id" key={item.id}>
             <div className="card-body">
               <h5 className="card-title">{item.title}</h5>
               <h6 className="card-subtitle mb-2 text-muted">{item.rating}</h6>
@@ -17,9 +17,14 @@ const CartContainer = ({ cart, deleteProductFromCart }) => {
                 <i className="fas fa-rupee-sign"></i>
                 {item.price}
               </p>
-              <button onClick={() => deleteProductFromCart(item.id)}>
-                <i className="fas fa-trash"></i>
-              </button>
+              <div class="d-grid gap-2 col-6 mx-auto">
+                <button
+                  class="btn btn-outline-danger"
+                  onClick={() => deleteProductFromCart(item.id)}
+                >
+                  <i className="fas fa-trash"></i>
+                </button>
+              </div>
             </div>
           </div>
         );
