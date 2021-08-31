@@ -75,8 +75,6 @@ const reducer = (state = initialState, action) => {
         cart: state.cart.filter((item) => item.id !== action.payload),
       };
     case POST_PRODUCT_SUCCESS:
-      console.log("new product redcue ", action.payload);
-
       let product = [
         {
           title: action.payload.title,
@@ -85,13 +83,11 @@ const reducer = (state = initialState, action) => {
           rating: action.payload.rating,
         },
       ];
-      console.log("new product product ", product);
       return {
         ...state,
-        new_products: product,
+        posts: product,
       };
     case HANDLE_SORT_BUTTON:
-      console.log(!state.sort);
       return {
         ...state,
         sort: !state.sort,
@@ -104,17 +100,12 @@ const reducer = (state = initialState, action) => {
           return post;
         }
       });
-
-      console.log("redux post ", tempPosts);
-
       return {
         ...state,
         posts: tempPosts,
       };
-
     default:
       return state;
   }
 };
-
 export default reducer;
