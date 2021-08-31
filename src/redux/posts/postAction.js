@@ -1,5 +1,4 @@
 // IMPORT ACTION TYPES
-import axios from "axios";
 import {
   FETCH_POSTS_FAILURE,
   FETCH_POSTS_REQUEST,
@@ -37,17 +36,16 @@ export const fetchPostsFailure = (error) => {
 
 // FETCH POST FORM THE API ACTION WHICH RETURN AN FUNCTION
 export const fetchPosts = () => {
-  return (dispatch) => {
+  return async (dispatch) => {
     dispatch(fetchPostsRequest);
-    axios
-      .get(api_url)
-      .then((response) => {
-        console.log("api fetch posts response ", response);
-        dispatch(fetchPostsSuccess(response.data));
-      })
-      .catch((err) => {
-        dispatch(fetchPostsFailure(err.message));
-      });
+    const res = await fetch(api_url);
+    const response = await res.json();
+    if (response) {
+      console.log("api fetch posts response ", response);
+      dispatch(fetchPostsSuccess(response));
+    } else {
+      dispatch(fetchPostsFailure("server error"));
+    }
   };
 };
 

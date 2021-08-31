@@ -85,7 +85,7 @@ const reducer = (state = initialState, action) => {
       ];
       return {
         ...state,
-        posts: product,
+        new_products: product,
       };
     case HANDLE_SORT_BUTTON:
       return {
