@@ -10,8 +10,15 @@
 
 ### Preview
   * Product List Page
+    ![](src/img/productlist.jpg)
   * Add new product page
+    ![](src/img/addnewproduct.jpg)
   * cart page
+    ![](src/img/cartiems.jpg)
   * Information about the product page 
+    ![](src/img/info.jpg)
   * onClick on pencil button
+    ![](src/img/edititem.jpg)
+  * Home Page
+    ![](src/img/home.jpg)
  
