@@ -32,7 +32,7 @@ const Navbar = ({ numOfCartItems }) => {
       </div>
       <div>
         {/* CART PAGE ICON/LINK */}
-        <Link className="navbar-brand" to="/cart">
+        <Link className="navbar-brand" to="/cartComponent">
           <i className="fas fa-cart-plus"></i>
           <span>{numOfCartItems}</span>
         </Link>

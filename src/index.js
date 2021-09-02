@@ -32,9 +32,10 @@ ReactDOM.render(
         <Route path="/productInformation">
           <InformationContainer />
         </Route>
-        <Route path="/cart">
+        <Route path="/cartComponent">
           <CartContainer />
         </Route>
+        
       </Switch>
     </Router>
   </Provider>,
